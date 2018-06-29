@@ -16,7 +16,7 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Regions</h1>
+          <h1 class="my-4" style="color: #005ce6">Regions</h1>
           <div class="list-group">
             <a href="#" class="list-group-item">Ashanti Region</a>
             <a href="#" class="list-group-item">Eastern Region</a>
@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col-lg-10 mx-auto">
               <h2 style="color: #005ce6">The <?php echo $array[4]; ?> Region</h2>
-              <p class="lead mb-5" style="font-size: 85%; text-align: justify"><?php echo $array[3]; ?>
+              <p class="lead mb-5" style="font-size: 85%; text-align: justify; line-height: 20px;"><?php echo $array[3]; ?>
               </p>
             </div>
           </div>

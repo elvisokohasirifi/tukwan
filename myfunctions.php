@@ -44,6 +44,33 @@
 	    return array($imageone, $imagetwo, $imagethree, $description, $var);
   	}
 
+  	function toursites($var='Ashanti'){
+	  	$result = queryMysql("select * from place where region = '$var%' and location = ''");
+	  	if($result -> num_rows > 0){
+	      while($row = $result -> fetch_assoc()){
+				$ans .= '<div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="'.$row['imageone'].'" alt="'.$row['name'].'"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">'.$row['name'].'</a>
+                  </h4>
+                  <h5>$24.99</h5>
+                  <p class="card-text">'.$row['description'].'</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+              </div>
+            </div>';
+			}
+		}
+	    else{
+	    	$ans = '<p></p>';
+	    }
+	    return $ans;
+  	}
+
 	function loadEvents($var=""){
 	    $ans = '';
 	    $result = queryMysql("select * from event where startdate > CURDATE() and status = 'yes'");
