@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php echo nav('Tukwan - About'); 
-    $array = regions();
+  <?php echo nav('Tukwan - Tour sites in Ghana'); 
+    if (isset($_GET['region'])) $region = $_GET['region'];
+    else $region = 'Ashanti';
+    $array = regions($region);
   ?>
 
     <!-- Page Content -->
@@ -18,16 +20,16 @@
 
           <h1 class="my-4" style="color: #005ce6">Regions</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item">Ashanti Region</a>
-            <a href="#" class="list-group-item">Eastern Region</a>
-            <a href="#" class="list-group-item">Upper West Region</a>
-            <a href="#" class="list-group-item">Central Region</a>
-            <a href="#" class="list-group-item">Western Region</a>
-            <a href="#" class="list-group-item">Upper East Region</a>
-            <a href="#" class="list-group-item">Northern Region</a>
-            <a href="#" class="list-group-item">Volta Region</a>
-            <a href="#" class="list-group-item">Greater Accra Region</a>
-            <a href="#" class="list-group-item">Brong Ahafo Region</a>
+            <a href="../toursites/?region=Ashanti" class="list-group-item">Ashanti Region</a>
+            <a href="../toursites/?region=Eastern" class="list-group-item">Eastern Region</a>
+            <a href="../toursites/?region=Upper West" class="list-group-item">Upper West Region</a>
+            <a href="../toursites/?region=Central" class="list-group-item">Central Region</a>
+            <a href="../toursites/?region=Western" class="list-group-item">Western Region</a>
+            <a href="../toursites/?region=Upper East" class="list-group-item">Upper East Region</a>
+            <a href="../toursites/?region=Northern" class="list-group-item">Northern Region</a>
+            <a href="../toursites/?region=Volta" class="list-group-item">Volta Region</a>
+            <a href="../toursites/?region=Greater Accra" class="list-group-item">Greater Accra Region</a>
+            <a href="../toursites/?region=Brong Ahafo" class="list-group-item">Brong Ahafo Region</a>
           </div>
 
         </div>
@@ -74,103 +76,7 @@
       </div>
 
           <div class="row">
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item One</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Two</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Three</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Four</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Five</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Six</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
+            <?php echo toursites($region); ?>
           </div>
           <!-- /.row -->
 

@@ -34,6 +34,16 @@
 		echo "Failed";
 	}
 
+	function loadSite($query='Lake Bosomtwe'){
+		$ans = queryMysql("select * from place, touristsite where place.placeid = touristsite.placeid and name = '$query'");
+	  	$row = $ans -> fetch_assoc();
+	  	$imagetwo = $row['imagetwo'];
+	    $imagethree = $row['imagethree'];
+	    $imageone = $row['imageone'];
+	    $description = $row['description'];
+	    return array($imageone, $imagetwo, $imagethree, $description, $query, $row['contact'], $row['time'], $row['location']);
+	}
+
 	function regions($var='Ashanti'){
 	  	$ans = queryMysql("select * from place where name like '$var%' and location = ''");
 	  	$row = $ans -> fetch_assoc();
@@ -45,18 +55,31 @@
   	}
 
   	function toursites($var='Ashanti'){
-	  	$result = queryMysql("select * from place where region = '$var%' and location = ''");
+  		$ans = "";
+	  	$result = queryMysql("select * from place where region = '$var'");
 	  	if($result -> num_rows > 0){
 	      while($row = $result -> fetch_assoc()){
+	      		$string = strip_tags($row['description']);
+				if (strlen($string) > 200) {
+
+				    // truncate string
+				    $stringCut = substr($string, 0, 200);
+				    $endPoint = strrpos($stringCut, ' ');
+
+				    //if the string doesn't contain any space then it will cut without word basis.
+				    $string = $endPoint? substr($stringCut, 0, $endPoint):substr($stringCut, 0);
+				    $string = str_replace("’", "'", $string);
+				    $string .= '... <a href="../toursite/?site='.$row['name'].'">Read More</a>';
+}
 				$ans .= '<div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="'.$row['imageone'].'" alt="'.$row['name'].'"></a>
+                <a href="#"><img class="card-img-top" src="../images/'.$row['imageone'].'" alt="'.$row['name'].'"></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">'.$row['name'].'</a>
+                    <a href="../toursite/?site='.$row['name'].'">'.$row['name'].'</a>
                   </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">'.$row['description'].'</p>
+                  <h5>'.$row['location'].'</h5>
+                  <p class="card-text">'.$string.'</p>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
