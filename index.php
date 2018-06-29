@@ -1,84 +1,11 @@
-<!DOCTYPE html>
 <?php  
   include 'myfunctions.php';
+  include 'headers.php'; 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Tukwan - Home</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.php"><img src="images/tukwanlogo.png" height="40px"></a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="about/" style="color: #005ce6">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services/" style="color: #005ce6">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="tourguides/" style="color: #005ce6">Tour Guides</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #005ce6">
-                Bookings
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="hotels/" style="color: #005ce6">Hotel Reservation</a>
-                <a class="dropdown-item" href="carrentals/" style="color: #005ce6">Car Rental</a>
-                <a class="dropdown-item" href="tourguides/" style="color: #005ce6">Tour Guides</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #005ce6">
-                Events
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                <a class="dropdown-item" href="tourevents/" style="color: #005ce6">Tour Events</a>
-                <a class="dropdown-item" href="otherevents/" style="color: #005ce6">Other Events</a>
-                <a class="dropdown-item" href="createevent/" style="color: #005ce6">Create an Event</a>
-
-              </div>
-            </li>  
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #005ce6">
-                Places
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="toursites/" style="color: #005ce6">Tour Sites</a>
-                <a class="dropdown-item" href="terminals/" style="color: #005ce6">Bus Terminals</a>
-                <a class="dropdown-item" href="landmarks/" style="color: #005ce6">Important Landmarks</a>
-              </div>
-            </li>          
-            <li class="nav-item">
-              <a class="nav-link" href="contact/" style="color: #005ce6">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <?php echo navHome(); ?>
 
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -211,28 +138,16 @@
             </div>
           </div>
         </div>
-      </div>
-
+      </div>      
+      
       <h2 style="color: #005ce6">Upcoming Events</h2>
-      <div style="margin-top: 50px; margin-bottom: 50px" id="content">
-          <?php 
-            echo loadEvents();
-          ?>
-      </div>
+      <?php 
+         echo loadEvents();
+      ?>
       <!-- /.row -->
     </div>
     <!-- /.container -->
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Tukwan 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <?php echo footerHome(); ?>
     <script type="text/javascript" src="js.js"></script>
 
   </body>

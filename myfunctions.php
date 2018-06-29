@@ -1,6 +1,15 @@
 <?php 
+	session_start();
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "tukwandb";
 
-	include 'config.php';
+	$connection = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($connection->connect_error) {
+	    die("Connection failed: " . $connection->connect_error);
+	}	 
 
 	function test_input($data) {
 	  $data = trim($data);
@@ -25,31 +34,44 @@
 		echo "Failed";
 	}
 
+	function regions($var='Ashanti'){
+	  	$ans = queryMysql("select * from place where name like '$var%' and location = ''");
+	  	$row = $ans -> fetch_assoc();
+	  	$imagetwo = $row['imagetwo'];
+	    $imagethree = $row['imagethree'];
+	    $imageone = $row['imageone'];
+	    $description = $row['description'];
+	    return array($imageone, $imagetwo, $imagethree, $description, $var);
+  	}
+
 	function loadEvents($var=""){
-    $ans = '';
-    $result = queryMysql("select * from event where startdate > CURDATE() and status = 'yes'");
-    $count = 0;
-    if($result -> num_rows > 0){
-      while($row = $result -> fetch_assoc()){
-          $ans .= '
-          <div class="row myslides" style="display:none">
-          <div class="col-lg-6">
-          <p><b>Event name:</b> '. $row['eventname'] .'</p>
-            <b>Date:</b> '.$row['startdate'].'</p>
-		            <p><b>Time:</b> '.$row['starttime'].'</p>
-		            <p><b>Venue:</b> '.$row['venue'].'</p>
-		            <p><b>Rate:</b> $'.$row['rate'].'</p>
-		         </ul>
-		         <p>'.$row['description'].'</p>
-		         </div>
-        <div class="col-lg-6">
-          <img class="img-fluid rounded" src="images/'.$row['flyer'].'" alt=""></div></div>';
-      }
-    }
-    else{
-    	$ans = '<p></p>';
-    }
-    return $ans;
-  }
+	    $ans = '';
+	    $result = queryMysql("select * from event where startdate > CURDATE() and status = 'yes'");
+	    if($result -> num_rows > 0){
+	      while($row = $result -> fetch_assoc()){
+				$ans .= '<div class="slides" style="margin-top: 50px; margin-bottom:50px"><div class="row" style="text-align: left;">
+
+					        <div class="col-md-6">
+					          <img class="img-fluid rounded" src="images/'.$row['flyer'].'" alt="">
+					        </div>
+
+					        <div class="col-md-6">
+					          <p><b>Event name:</b> '. $row['eventname'] .'<br>
+					          <b>Date:</b> '.$row['startdate'].'<br>
+			            	  <b>Time:</b> '.$row['starttime'].'<br>
+			            	  <b>Venue:</b> '.$row['venue'].'<br>
+			            	  <b>Rate:</b> $'.$row['rate'].'</p>
+			         
+			         		  <p style="font-size: 80%; line-height: 150%;">'.$row['description'].'</p>
+					        </div>
+
+					      </div></div>';
+			}
+		}
+	    else{
+	    	$ans = '<p></p>';
+	    }
+	    return $ans;
+	  }
 
 ?>

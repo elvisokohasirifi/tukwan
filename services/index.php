@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <?php echo nav('Tukwan - Tour Guides'); ?>
+  <?php echo nav('Tukwan - Services'); ?>
+
     <header>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -48,61 +49,61 @@
     <div class="container">
 
       <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3" style="color: #005ce6">Our
-        <small>tour guides</small>
+      <h1 class="mt-4 mb-3" style="color: #005ce6">Services
+        <small>we provide</small>
       </h1>
 
       <!-- Marketing Icons Section -->
-      <div class="row text-center" style="margin-top: 20px; margin-bottom: 50px;">
+      <div class="row text-center">
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
             <img class="card-img-top" src="../images/site2.jpg" alt="" height="150px">
             <div class="card-body">
-              <h4 class="card-title">Ibrahim Banda</h4>
-              <p class="card-text">Description of tour guide.</p>
+              <h4 class="card-title">Book a tour</h4>
+              <p class="card-text">Book a tour and visit any tour site you desire. We have offers for groups at amazingly affordable prices.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Book guide!</a>
+              <a href="../tourevents/" class="btn btn-primary">Book a tour!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="../images/site2.jpg" alt="" height="150px">
+            <img class="card-img-top" src="../images/hotel1.jpg" alt="" height="150px">
             <div class="card-body">
-              <h4 class="card-title">Ibrahim Banda</h4>
-              <p class="card-text">Description of tour guide.</p>
+              <h4 class="card-title">Hotel Reservation</h4>
+              <p class="card-text">Make great savings by making all your hotel reservations with us. Our prices are unbeatable.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Book guide!</a>
+              <a href="../hotels/" class="btn btn-primary">Make a reservation!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="../images/site2.jpg" alt="" height="150px">
+            <img class="card-img-top" src="../images/car2.png" alt="" height="150px">
             <div class="card-body">
-              <h4 class="card-title">Ibrahim Banda</h4>
-              <p class="card-text">Description of tour guide.</p>
+              <h4 class="card-title">Car Rental</h4>
+              <p class="card-text">We offer you huge discounts on all your car rentals for your weddings, parties, excursions, etc. You select, we deliver.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Book guide!</a>
+              <a href="../carrentals/" class="btn btn-primary">Rent a car!</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
-            <img class="card-img-top" src="../images/site2.jpg" alt="" height="150px">
+            <img class="card-img-top" src="../images/guide1.jpg" alt="" height="150px">
             <div class="card-body">
-              <h4 class="card-title">Ibrahim Banda</h4>
-              <p class="card-text">Description of tour guide.</p>
+              <h4 class="card-title">Tour Guide Hiring</h4>
+              <p class="card-text">We also give you the chance to hire your own tour guide the same way to pick an Uber cab.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Book guide!</a>
+              <a href="../tourguides/" class="btn btn-primary">Hire one now!</a>
             </div>
           </div>
         </div>
@@ -114,6 +115,7 @@
     <!-- /.container -->
 
     <?php echo footer(); ?>
+
   </body>
 
 </html>
