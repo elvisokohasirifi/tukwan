@@ -124,4 +124,34 @@
 	    return $ans;
 	  }
 
+	  function loadOtherEvents(){
+	  	$ans = '';
+	    $result = queryMysql("select description, startdate, event.eventid, starttime, eventname, rate, flyer, venue, year(startdate), month(startdate), day(startdate) from event, otherevent where startdate > CURDATE() and status = 'yes' and event.eventid = otherevent.eventid order by startdate");
+	    if($result -> num_rows > 0){
+	      while($row = $result -> fetch_assoc()){
+	      	$pieces = explode(":", $row['starttime']);
+	  	$ans .= '<div class="row">
+			        <div class="col-md-7">
+			          <a href="#">
+			            <img class="img-fluid rounded mb-3 mb-md-0" src="../images/'.$row['flyer'].'" alt="'.$row['eventname'].'">
+			          </a>
+			        </div>
+			        <div class="col-md-5">
+			          <h3 style="color: #005ce6">'.$row['eventname'].'</h3>
+			          <p style="text-align: left;"><b>Date:</b> '.$row['startdate'].'<br>
+			            	  <b>Time:</b> '.$row['starttime'].'<br>
+			            	  <b>Venue:</b> '.$row['venue'].'<br>
+			            	  <b>Rate:</b> $'.$row['rate'].'</p>
+			          <p style="text-align: justify;">'.$row['description'].'</p>
+			          <a class="btn btn-primary" href="../ics.php?id='.$row['eventid'].'&title='.$row['eventname'].'&description='.$row['description'].'&day='.sprintf("%02d", $row['day(startdate)']).'&month='.sprintf("%02d", $row['month(startdate)']).'&year='.$row['year(startdate)'].'&hr='.sprintf("%02d", $pieces[0]).'&min='.sprintf("%02d", $pieces[1]).'&sec=00&stage='.$row['venue'].'">Save to Calendar</a>
+			        </div>
+			      </div><hr>';
+			      }
+		}
+	    else{
+	    	$ans = '<p></p>';
+	    }
+	    return $ans;
+	  }
+
 ?>

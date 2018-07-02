@@ -22,7 +22,7 @@
     <style type="text/css">
       h3{color: white;}
       body, p, h2, h3, a, li{
-        font-family: Trebuchet MS;
+        font-family: Trebuchet MS; Tahoma; verdana;
       }
     </style>
   </head>
@@ -58,7 +58,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #005ce6">
-                Events
+                Events/Tours
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="../tourevents/" style="color: #005ce6">Tour Events</a>
@@ -145,8 +145,8 @@
             </div>
           </div>
         </footer>
-        <script src="../images/../vendor/jquery/jquery.min.js"></script>
-    	<script src="../images/../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+    	<script type="text/javascript"  src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         ';
 	}
 
@@ -164,6 +164,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/full.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
@@ -209,7 +210,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #005ce6">
-                Events
+                Events/Tours
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                 <a class="dropdown-item" href="tourevents/" style="color: #005ce6">Tour Events</a>
@@ -297,7 +298,7 @@
           </div>
         </footer>
         <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript"  src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         ';
   }
 ?>
