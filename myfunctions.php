@@ -125,8 +125,22 @@
 	  }
 
 	  function loadOtherEvents(){
-	  	$ans = '';
-	    $result = queryMysql("select description, startdate, event.eventid, starttime, eventname, rate, flyer, venue, year(startdate), month(startdate), day(startdate) from event, otherevent where startdate > CURDATE() and status = 'yes' and event.eventid = otherevent.eventid order by startdate");
+	  	$pageno = 0;
+	  	if (isset($_GET['pageno'])) {
+            $pageno = $_GET['pageno'];
+        } else {
+            $pageno = 1;
+        }
+        $no_of_records_per_page = 5;
+        $offset = ($pageno-1) * $no_of_records_per_page;
+
+        $total_pages_sql = "SELECT COUNT(*) FROM event, otherevent where startdate > CURDATE() and status = 'yes' and event.eventid = otherevent.eventid";
+        $result = queryMysql($total_pages_sql);
+        $total_rows = $result -> fetch_assoc()['COUNT(*)'];
+        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+       	$ans = '';
+	    $result = queryMysql("select description, startdate, event.eventid, starttime, eventname, rate, flyer, venue, year(startdate), month(startdate), day(startdate) from event, otherevent where startdate > CURDATE() and status = 'yes' and event.eventid = otherevent.eventid order by startdate LIMIT $offset, $no_of_records_per_page");
 	    if($result -> num_rows > 0){
 	      while($row = $result -> fetch_assoc()){
 	      	$pieces = explode(":", $row['starttime']);
@@ -151,7 +165,7 @@
 	    else{
 	    	$ans = '<p></p>';
 	    }
-	    return $ans;
+	    return array($ans, $pageno, $total_pages);
 	  }
 
 ?>
